@@ -49,7 +49,7 @@ defmodule LiveViewStudioWeb.SalesLive do
     """
   end
 
-  def handle_event(event, _, socket) do
+  def handle_event("refresh", _, socket) do
     {:noreply, assign_stats(socket)}
   end
 

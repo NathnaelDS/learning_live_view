@@ -46,7 +46,7 @@ defmodule LiveViewStudioWeb.LightLive do
       </div>
     </form>
     <form phx-change="slide" class="mt-4">
-        <input type="range" name="brightness" min="0" max="100" value={@brightness}>
+        <input type="range" name="brightness" min="0" max="100" value={@brightness} phx-debounce="250">
     </form>
     """
   end
