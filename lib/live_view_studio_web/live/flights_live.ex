@@ -39,31 +39,33 @@ defmodule LiveViewStudioWeb.FlightsLive do
       </form>
 
       <datalist id="matches">
-        <option :for={{code, name} <- @matches} value={code}><%= name %></option>
+        <option :for={{code, name} <- @matches} value={code}>
+          <%= name %>
+        </option>
       </datalist>
 
-      <div :if={@loading} class="loader">Loading...</div>
+      <.loading_indicator visible={@loading} />
 
       <div class="flights">
         <ul>
-            <li :for={flight <- @flights}>
-              <div class="first-line">
-                <div class="number">
-                  Flight #<%= flight.number %>
-                </div>
-                <div class="origin-destination">
-                  <%= flight.origin %> to <%= flight.destination %>
-                </div>
+          <li :for={flight <- @flights}>
+            <div class="first-line">
+              <div class="number">
+                Flight #<%= flight.number %>
               </div>
-              <div class="second-line">
-                <div class="departs">
-                  Departs: <%= flight.departure_time %>
-                </div>
-                <div class="arrives">
-                  Arrives: <%= flight.arrival_time %>
-                </div>
+              <div class="origin-destination">
+                <%= flight.origin %> to <%= flight.destination %>
               </div>
-            </li>
+            </div>
+            <div class="second-line">
+              <div class="departs">
+                Departs: <%= flight.departure_time %>
+              </div>
+              <div class="arrives">
+                Arrives: <%= flight.arrival_time %>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

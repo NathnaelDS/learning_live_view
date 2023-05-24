@@ -36,10 +36,12 @@ defmodule LiveViewStudioWeb.VehiclesLive do
       </form>
 
       <datalist id="matches">
-        <option :for={make_model <- @matches} value={make_model}><%= make_model %></option>
+        <option :for={make_model <- @matches} value={make_model}>
+          <%= make_model %>
+        </option>
       </datalist>
 
-      <div :if={@loading} class="loader">Loading...</div>
+      <.loading_indicator visible={@loading} />
 
       <div class="vehicles">
         <ul>
